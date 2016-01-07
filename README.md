@@ -42,10 +42,12 @@ Just burn the ISO to a blank DVD from your favourite tool, and boot it.
 
 Open a Terminal window from the Utilities section of Applications.
 
-Type `diskutil list` to get a list of devices - one of them will be your USB stick (e.g. `/dev/disk2`). Follow the Linux instructions below but change:
+Type `diskutil list` to get a list of devices - one of them will be your USB stick (e.g. `/dev/disk2`).
 
-* `/dev/sdX` to `/dev/rdiskX`
-* `bs=1M` to `bs=1m`
+Type `diskutil unmountDisk /dev/diskX` to unmount any partition(s) on the USB disk
+
+run `sudo dd bs=1m if=/path/to/downloaded.iso of=/dev/rdiskX`
+Take note of "r" before "diskX" and the "1m" instead of "1M" in the bs switch (OSX doesn't use GNU dd)
 
 ## Installing from USB (Linux)
 
